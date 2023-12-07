@@ -1,0 +1,400 @@
+/* Global styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Ensures consistent element sizing */
+}
+
+body {
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    #0c164d 0%,
+    #190b22 100%
+  ); /* Background with a linear gradient */
+}
+
+/* Main layout styling */
+main {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Styling for name wrapper section */
+.nameWrapper {
+  position: absolute;
+  right: 0;
+  top: 10%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  padding: 1rem;
+  z-index: 1;
+}
+.nameWrapper h1,
+.nameWrapper h3 {
+  color: white;
+  font-family: "Roboto Mono", monospace; /* Futuristic font for headings */
+  letter-spacing: 0.2rem;
+  font-size: 50px;
+}
+.nameWrapper h3 {
+  color: gold; /* Golden color for subheadings */
+  font-size: 25px;
+}
+
+/* Common styles for planet wrappers */
+.planetWrapperOne,
+.planetWrapperTwo,
+.planetWrapperThree,
+.planetWrapperFour,
+.planetWrapperFive,
+.planetWrapperSix,
+.planetWrapperSeven,
+.planetWrapperEight,
+.planetWrapperNine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px; /* 3D effect */
+  white-space: 1rem; /* Maintain spacing */
+}
+
+/* Base styles for all planets */
+.sun,
+.mercury,
+.venus,
+.earth,
+.mars,
+.jupiter,
+.saturn,
+.uranus,
+.neptune {
+  border-radius: 50%; /* Circular shape */
+  transition: background-color 1.5s; /* Smooth background color transition */
+  transition-duration: 1s;
+}
+
+/* Individual planet styles */
+.sun {
+  background: #ffd029;
+  box-shadow: 0px 0px 250px 0px rgba(255, 208, 41, 0.2);
+  width: 60vw;
+  height: 60vw;
+  margin-left: -50vw;
+}
+.sun:hover {
+  background-color: rgb(221, 159, 12);
+  box-shadow: 0 0 3rem rgba(236, 233, 15, 0.705);
+}
+
+.mercury {
+  background-color: #888888;
+  width: 1vw;
+  height: 1vw;
+}
+.mercury:hover {
+  background-color: rgb(79, 79, 79);
+  box-shadow: 0 0 3rem rgba(236, 233, 15, 0.705);
+}
+
+.venus {
+  background-color: #e7cdcd;
+  width: 2vw;
+  height: 2vw;
+}
+.venus:hover {
+  background-color: rgb(137, 106, 106);
+  box-shadow: 0 0 3rem rgba(236, 233, 15, 0.705);
+}
+
+.earth {
+  background: #428ed4;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+}
+.earth:hover {
+  background-color: rgb(8, 8, 154);
+  box-shadow: 0 0 3rem rgba(236, 233, 15, 0.705);
+}
+
+.mars {
+  background-color: #ef5f5f;
+  width: 1.5vw;
+  height: 1.5vw;
+}
+.mars:hover {
+  background-color: rgb(152, 49, 33);
+  box-shadow: 0 0 3rem rgba(236, 233, 15, 0.705);
+}
+
+.jupiter {
+  background-color: #e29468;
+  width: 9vw;
+  height: 9vw;
+  margin-right: 3vw;
+}
+.jupiter:hover {
+  background-color: rgb(222, 121, 14);
+  box-shadow: 0 0 3rem rgba(236, 233, 15, 0.705);
+}
+
+.saturn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c7aa72;
+  width: 7vw;
+  height: 7vw;
+  position: relative;
+}
+
+.saturn:hover {
+  background-color: rgb(221, 165, 23);
+  box-shadow: 0 0 3rem rgba(236, 233, 15, 0.705);
+}
+
+/* Saturn's unique ring style */
+.saturn:before {
+  content: "";
+  position: absolute;
+  border-radius: 100%;
+  width: 10vw;
+  height: 0.5vw;
+  background: rgba(255, 255, 255, 0.4);
+  transform: rotate(-30deg);
+}
+
+.uranus {
+  background-color: #c9d4f1;
+  width: 4.5vw;
+  height: 4.5vw;
+}
+.uranus:hover {
+  background-color: rgb(111, 111, 229);
+  box-shadow: 0 0 3rem rgba(236, 233, 15, 0.705);
+}
+
+.neptune {
+  background-color: #7a91a7;
+  width: 4.5vw;
+  height: 4.5vw;
+}
+.neptune:hover {
+  background-color: rgb(73, 73, 238);
+  box-shadow: 0 0 3rem rgba(236, 233, 15, 0.705);
+}
+
+.modularPopup {
+  display: none;
+  align-items: center;
+  border: 5px solid black;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(90deg, #0c164d 0%, #190b22 100%);
+  z-index: 1;
+}
+.moon {
+  background-color: #428ed4;
+  box-shadow: rgb(66, 142, 212, 0.1) 0px 0px 0px 100px,
+    rgb(66, 142, 212, 0.06) 0px 0px 0px 50px;
+  border-radius: 50%;
+  width: 60vw;
+  height: 60vw;
+  margin-left: -50vw;
+}
+
+@keyframes moveStars {
+  from {
+    transform: translateY(-100vh);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+/* Styles for stars and their animation */
+.star {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0.2rem 0.2rem 0.2rem yellow;
+  width: 0.1rem;
+  height: 0.1rem;
+  border-radius: 50%;
+  animation: moveStars 10s linear infinite; /* Infinite star movement */
+  z-index: -1;
+}
+
+/* Styles for the content inside the popup */
+.modularPopup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  padding: 0;
+  gap: 32px;
+  position: absolute;
+  width: 60vw;
+  height: 70vh;
+  left: calc(50% - 60vw / 2);
+  top: calc(50% - 70vh / 2 - 8px);
+  background-color: #0c164d86;
+  color: #ffffff;
+  font-family: "Roboto Mono", monospace;
+  overflow-y: auto; /* Scrollable content */
+}
+
+/* Scrollbar styles for modular popup content */
+.modularPopup-content::-webkit-scrollbar {
+  width: 4px;
+}
+.modularPopup-content::-webkit-scrollbar-thumb {
+  background-color: whitesmoke;
+  border-radius: 2px;
+}
+
+/* Styling for different sections in the popup */
+.planet-info,
+.planet-moons,
+.planet-circumference,
+.planet-distance,
+.planet-temp-day,
+.planet-temp-night {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/* Styling for close button */
+.close {
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+/* Styling for planet title and info */
+.planet-title {
+  font-family: "Roboto Mono", monospace;
+  font-size: 3rem;
+  line-height: 100%;
+  letter-spacing: 0.09em;
+}
+.planet-info {
+  font-size: 1rem;
+  width: 100%;
+  min-height: 14vh;
+  line-height: 100%;
+  letter-spacing: 0.1em;
+  overflow-y: auto; /* Scrollable for longer texts */
+}
+.planet-info p {
+  color: #fff;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 170%;
+}
+.planet-info::-webkit-scrollbar {
+  width: 4px;
+}
+
+.planet-info::-webkit-scrollbar-thumb {
+  background-color: whitesmoke;
+  border-radius: 2px;
+}
+
+/* Styling for the Latin name of the planet */
+.planet-latin-name {
+  color: gold;
+  font-size: 1.5rem;
+  font-family: "Roboto Mono", monospace;
+  margin-bottom: 0.8rem;
+}
+
+/* Styling for the information grid in the popup */
+.info-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  margin: 0.9rem 0;
+  width: 100%;
+  height: 100%;
+}
+/* ... similar styles for grid items like planet-circumference, planet-distance, etc. ... */
+
+.planet-circumference {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  font-size: 1.2rem;
+}
+.planet-circumference p {
+  font-size: 1rem;
+  font-family: "Roboto Mono", monospace;
+}
+.planet-distance {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  font-size: 1.2rem;
+}
+.planet-distance p {
+  font-size: 1rem;
+  font-family: "Roboto Mono", monospace;
+}
+
+.planet-temp-day {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  font-size: 1.2rem;
+}
+.planet-temp-day p {
+  font-size: 1rem;
+  font-family: "Roboto Mono", monospace;
+}
+.planet-temp-night {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  font-size: 1.2rem;
+}
+.planet-temp-night p {
+  font-size: 1rem;
+  font-family: "Roboto Mono", monospace;
+}
+
+.planet-moons {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+.planet-moons p {
+  font-size: 1rem;
+  font-family: "Roboto Mono", monospace;
+}
+
+.nameWrapper h3,
+.planet-latin-name,
+.planet-circumference p,
+.planet-distance p,
+.planet-temp-day p,
+.planet-temp-night p,
+.planet-moons p {
+  color: gold;
+  font-family: "Roboto Mono", monospace; /* A monospaced font for a techy look */
+}
+
+.modularPopup-content,
+.planet-title,
+.planet-info,
+.planet-info p {
+  color: #ffffff;
+  font-family: "Roboto Mono", monospace; /* A monospaced font for a techy look */
+}

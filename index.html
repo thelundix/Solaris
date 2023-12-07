@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar-System</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Mono&family=Roboto+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+    <!-- Links to the JavaScript file and defers(attribute to delay the execution of the script until after the HTML document has been fully parsed) its loading until after the page is rendered -->
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <div class="nameWrapper">
+          <h1>SOLSYSTEMET</h1>
+          <h3>SOLARIS</h3>
+        </div>
+      </header>
+
+      <!-- Sections for each planet -->
+      <section class="planet planetWrapperOne" data-name="Solen">
+        <div class="sun"></div>
+      </section>
+      <section class="planet planetWrapperTwo" data-name="Merkurius">
+        <div class="mercury"></div>
+      </section>
+      <section class="planet planetWrapperThree" data-name="Venus">
+        <div class="venus"></div>
+      </section>
+      <section class="planet planetWrapperFour" data-name="Jorden">
+        <div class="earth"></div>
+      </section>
+      <section class="planet planetWrapperFive" data-name="Mars">
+        <div class="mars"></div>
+      </section>
+      <section class="planet planetWrapperSix" data-name="Jupiter">
+        <div class="jupiter"></div>
+      </section>
+      <section class="planet planetWrapperSeven" data-name="Saturnus">
+        <div class="saturn"></div>
+      </section>
+      <section class="planet planetWrapperEight" data-name="Uranus">
+        <div class="uranus"></div>
+      </section>
+      <section class="planet planetWrapperNine" data-name="Neptunus">
+        <div class="neptune"></div>
+      </section>
+
+      <!-- Container for the popup that appears on some interaction -->
+      <article id="modularPopup" class="modularPopup">
+        <div class="stars"></div>
+        <div class="moon"></div>
+        <div class="modularPopup-content">
+          <span class="close" onclick="closeModular()">&times;</span>
+          <h1 id="planetTitle" class="planet-title"></h1>
+          <h2 id="planetLatinName" class="planet-latin-name"></h2>
+
+          <section class="planet-info">
+            <p id="planetInfo"></p>
+          </section>
+
+          <!-- Additional details about the planet displayed in the popup -->
+          <aside class="info-box">
+            <div class="planet-circumference">
+              OMKRETS
+              <p id="planetCircumference"></p>
+            </div>
+            <div class="planet-distance">
+              KM FRÅN SOLEN
+              <p id="planetDistance"></p>
+            </div>
+            <div class="planet-temp-day">
+              DAG TEMPERATUR
+              <p id="planetTempDay"></p>
+            </div>
+            <div class="planet-temp-night">
+              NATT TEMPERATUR
+              <p id="planetTempNight"></p>
+            </div>
+          </aside>
+
+          <section class="planet-moons">
+            MÅNAR:
+            <p id="planetMoons"></p>
+          </section>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
